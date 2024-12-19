@@ -41,9 +41,24 @@ class inventory{
  }
  
 //fonction de modification 
-modifierproduit(){
+modifierproduit() {
+  const id = parseInt(prompt("Entrer l'ID du produit à modifier : "));
+  const quantite = parseInt(prompt("Entrer la nouvelle quantité : "));
+  const prix = parseFloat(prompt("Entrer le nouveau prix : "));
 
+  const produit = this.products.find(p => p.id === id);
+
+  if (!produit) {
+      console.log(`Produit avec ID ${id} non trouvé.`);
+      return;
+  }
+
+  produit.quantite = quantite;
+  produit.prix = prix;
+
+  console.log(`Produit avec ID ${id} mis à jour avec succès.`);
 }
+
 /*
 //fonction de suppression 
 supprimerproduit(){
@@ -73,9 +88,10 @@ switch(choix){
   inventaire.afficherproduit();
   break;
 
- /* case '3':
+  case '3':
+  inventaire.modifierproduit();
     break;
-  
+  /*
   case '4':
     break;
 
