@@ -1,15 +1,6 @@
 const prompt = require('prompt-sync')();
+const {produit} = require("./produit");
 
-//first class
-class produit{
-  constructor(id, name, description, quantite, prix){
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.quantite = quantite;
-    this.prix = prix; 
-  } 
-}
 
 // second class
 class inventory{
@@ -21,10 +12,10 @@ class inventory{
  addproduit(){
   const name = prompt("entrer le nom de produit: ");
   const description = prompt("donne description de le produit: ");
-  const quantite = prompt("entrer le quantite de ce produit: ");
-  const prix = prompt("enter le prix de ce produit: ");
+  const quantite = parseInt(prompt("entrer le quantite de ce produit: "));
+  const prix = parseFloat(prompt("enter le prix de ce produit: "));
   
-  const newProduit = new produit(this.name, description, quantite, prix);
+  const newProduit = new produit(this.nextId, name, description, quantite, prix);
   this.products.push(newProduit);
   this.nextId++;
 
@@ -38,17 +29,22 @@ class inventory{
     console.log("non produit disponible");
     return; 
   } 
-  else {
-    
+  for (let i = 0; i < this.products.length; i++ ){
+    const produit = this.products[i];
+    console.log(`~~~~~~~~~~Le produit ${i + 1}~~~~~~~~~~~~~`);
+    console.log(`Nom: ${produit.name}`);
+    console.log(`Description: ${produit.description}`);
+    console.log(`Quantité: ${produit.quantite}`);
+    console.log(`Prix: ${produit.prix} MAD`);
+
   }
-
-
  }
- /*
+ 
 //fonction de modification 
 modifierproduit(){
 
 }
+/*
 //fonction de suppression 
 supprimerproduit(){
 
