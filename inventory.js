@@ -9,6 +9,7 @@ class inventory{
       this.products = []; // Tableau pour stocker les produits
         this.nextId = 1;    // Identifiant unique pour chaque produit
     }
+
 //fonction d'addition 
  addproduit(){
   const name = prompt("entrer le nom de produit: ");
@@ -52,6 +53,7 @@ modifierproduit(){
     console.log("non produit disponible");
     return; 
   }
+  
   const id = parseInt(prompt("Entrer l'ID du produit à modifier : "));
   const quantite = parseInt(prompt("Entrer la nouvelle quantité : "));
   const prix = parseFloat(prompt("Entrer le nouveau prix : "));
@@ -62,7 +64,6 @@ modifierproduit(){
       console.log(`Non produit trouvé avec cette ID.`);
       return;
   }
-   //jai un probleme de que le code ne me donne pas si lindice inclue ou non hta y demende les nouvelle description
   produit.quantite = quantite;
   produit.prix = prix;
 
@@ -93,6 +94,7 @@ supprimerproduit() {
     console.log("Le produit a été supprimé avec succès.");
   }
 }
+
 saveToFile(filename = 'save.json') {
   try {
     const data = JSON.stringify(this.products, null, 2);
@@ -142,8 +144,8 @@ switch(choix){
 
   case '6':
     console.log("au revoir <3 ");
-    break;
-  //NE quitte pas
+    process.exit(0);
+  
   default:
     console.log('choix non trouve');
     break;

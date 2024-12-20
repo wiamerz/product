@@ -1,9 +1,16 @@
 [
   {
     "id": 1,
-    "name": "Pants ",
-    "description": "wide elg",
+    "name": "pants ",
+    "description": "wide leg",
     "quantite": 2000,
     "prix": 200
+  },
+  {
+    "id": 2,
+    "name": "skirt ",
+    "description": "maxi xhite skirt",
+    "quantite": 600,
+    "prix": 179
   }
 ]
