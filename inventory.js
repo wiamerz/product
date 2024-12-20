@@ -6,8 +6,8 @@ const fs = require('fs');
 // second class
 class inventory{
     constructor(){
-      this.products = []; // Tableau pour stocker les produits
-        this.nextId = 1;    // Identifiant unique pour chaque produit
+      this.products = []; 
+        this.nextId = 1;    
     }
 
 //fonction d'addition 
@@ -47,29 +47,29 @@ class inventory{
   }
  }
  
-//fonction de modification 
-modifierproduit(){
-  if (this.products.length == 0){
-    console.log("non produit disponible");
-    return; 
+ modifierproduit(){
+  if (this.products.length == 0) {
+    console.log("Aucun produit disponible");
+    return;
   }
-  
-  const id = parseInt(prompt("Entrer l'ID du produit à modifier : "));
-  const quantite = parseInt(prompt("Entrer la nouvelle quantité : "));
-  const prix = parseFloat(prompt("Entrer le nouveau prix : "));
 
+  const id = parseInt(prompt("Entrer l'ID du produit à modifier : "));
   const produit = this.products.find(p => p.id === id);
 
   if (!produit) {
-      console.log(`Non produit trouvé avec cette ID.`);
-      return;
+    console.log(`Produit avec l'ID ${id} n'a pas été trouvé.`);
+    return;
   }
+
+  // On ne demande les nouvelles valeurs que si le produit existe
+  const quantite = parseInt(prompt("Entrer la nouvelle quantité : "));
+  const prix = parseFloat(prompt("Entrer le nouveau prix : "));
+
   produit.quantite = quantite;
   produit.prix = prix;
 
   console.log(`Produit avec ID ${id} mis à jour avec succès.`);
 }
-
 
 //fonction de suppression 
 supprimerproduit() {
